@@ -1,0 +1,27 @@
+@keyframes drownDown {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes hideUp {
+  from {
+    transform: translateY(0%);
+  }
+
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+.drownDown {
+  animation: drownDown 0.4s forwards;
+}
+
+.hideUp {
+  animation: hideUp 0.4s forwards;
+}
