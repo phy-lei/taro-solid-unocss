@@ -45,7 +45,7 @@ export default function Index() {
         </view>
       </Drawer>
       <view class="p-2 flex-1 overflow-y-auto">
-        <Card class="mb-2">
+        <Card class="mb-2 shadow-[--box-shadow]">
           <view class="font-bold">商品：xxxx</view>
           <view class="font-bold">规格：xxxx</view>
           <view class="font-bold">类别：xxxx</view>
