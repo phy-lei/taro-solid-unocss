@@ -1,5 +1,6 @@
 import { Accessor } from "solid-js";
 import { type Component } from "solid-js";
+import { View } from '@tarojs/components'
 import { cva } from "class-variance-authority";
 import "./style.css";
 
@@ -10,7 +11,7 @@ interface MessageProps {
 }
 
 const messageVariants = cva(
-  "fixed left-0 top-0 z-999 h-70 color-white w-full flex center text-sm font-600",
+  "fixed left-0 top-0 z-999 h-70 color-white w-full flex center Text-sm font-600",
   {
     variants: {
       variant: {
@@ -33,14 +34,14 @@ const messageVariants = cva(
 
 const Message: Component<MessageProps> = (props) => {
   return (
-    <view
+    <View
       class={messageVariants({
         variant: props.show() ? "show" : "hide",
         type: props.type(),
       })}
     >
       {props.tips()}
-    </view>
+    </View>
   );
 };
 

@@ -1,8 +1,8 @@
 import { createSignal, For } from "solid-js";
 import clsx from "clsx";
-import { CategoryItemDto } from "@/apis/goods/model";
+import { View } from '@tarojs/components'
 interface Props {
-  data: CategoryItemDto[];
+  data: any[];
   defaultValue: string;
 }
 
@@ -14,10 +14,10 @@ export default function Tabs(props: Props) {
   };
 
   return (
-    <view class="flex gap-1 flex-nowrap overflow-x-auto whitespace-nowrap no-scrollbar">
+    <View class="flex gap-1 flex-nowrap overflow-x-auto whitespace-nowrap no-scrollbar">
       <For each={props.data}>
         {(item) => (
-          <view
+          <View
             class={clsx(
               "p-2",
               value() === item.value
@@ -28,9 +28,9 @@ export default function Tabs(props: Props) {
             data-value={item.value}
           >
             {item.name}
-          </view>
+          </View>
         )}
       </For>
-    </view>
+    </View>
   );
 }

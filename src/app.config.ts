@@ -16,12 +16,12 @@ export default defineAppConfig({
       iconPath: "assets/imgs/goods.png",
       selectedIconPath: "assets/imgs/goods-active.png",
       pagePath: 'pages/index/index',
-      text: "商品"
+      Text: "商品"
     }, {
       iconPath: "assets/imgs/mine.png",
       selectedIconPath: "assets/imgs/mine-active.png",
       pagePath: 'pages/mine/index',
-      text: "我的"
+      Text: "我的"
     }]
   },
 })

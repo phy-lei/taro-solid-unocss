@@ -1,5 +1,6 @@
 import { type Component, type JSX } from "solid-js";
 import { clsx } from "clsx";
+import { View, Icon } from '@tarojs/components'
 
 interface CardProps extends JSX.HTMLAttributes<HTMLButtonElement> {
   close?: boolean;
@@ -8,22 +9,22 @@ interface CardProps extends JSX.HTMLAttributes<HTMLButtonElement> {
 
 const Card: Component<CardProps> = (props) => {
   return (
-    <view
+    <View
       class={clsx(
         "relative rounded-md border border-dashed leading-6 p-2 border-gray-700",
         props.class
       )}
     >
       {props.close ? (
-        <icon
+        <Icon
           size="16"
           type="cancel"
           class="absolute right-1 top-1"
           onClick={props.onClose}
-        ></icon>
+        ></Icon>
       ) : null}
       {props.children}
-    </view>
+    </View>
   );
 };
 export default Card;

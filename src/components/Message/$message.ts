@@ -1,6 +1,6 @@
 
 import { createSignal } from 'solid-js'
-import { createElement, insert } from 'tarojs-solid-custom-render'
+import { createElement, insert } from '@tarojs/plugin-framework-solid/dist/reconciler'
 import { render } from "solid-js/web/dist/web.cjs"
 import Message from "./Message"
 import { ROOT_ID } from '@/utils/constants'
@@ -15,7 +15,7 @@ interface Props {
 
 const ANIMATION_TIME = 400
 const [show, setShow] = createSignal(false);
-const [text, setText] = createSignal('');
+const [Text, setText] = createSignal('');
 const [variance, setVariance] = createSignal<MessageType>('info')
 
 export default ({ tips, type = 'info', duration = 3000 }: Props) => {
@@ -27,9 +27,9 @@ export default ({ tips, type = 'info', duration = 3000 }: Props) => {
   setShow(true)
   const root = document.getElementById(ROOT_ID)
   if (!root) return
-  const container = createElement('view')
+  const container = createElement('View')
   insert(root, container)
-  const dispose = render(() => Message({ show, tips: text, type: variance }), container)
+  const dispose = render(() => Message({ show, tips: Text, type: variance }), container)
 
   const destroy = () => {
     setTimeout(() => {

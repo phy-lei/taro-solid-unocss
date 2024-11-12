@@ -2,6 +2,7 @@ import { createSignal, Show } from "solid-js";
 import clsx from "clsx";
 import { ROOT_ID } from "@/utils/constants";
 import { encryptPhone } from "@/utils";
+import { View, Image, Text, Button, Input } from '@tarojs/components'
 import { $user } from "@/stores/user";
 import { $needRefresh } from "@/stores/refresh";
 import useStore from "@/useHooks/useStore";
@@ -40,74 +41,74 @@ export default function Mine() {
 
   const NoTokenView = () => {
     return (
-      <view class="flex items-center">
-        <view class="w-100 h-100 bg-gray rounded-[100rpx] mr-2 flex center">
-          <image
+      <View class="flex items-center">
+        <View class="w-100 h-100 bg-gray rounded-[100rpx] mr-2 flex center">
+          <Image
             src="http://192.168.1.127:5500/profile.png"
             class="w-50 h-50"
-          ></image>
-        </view>
-        <view onClick={() => setVisible(true)} class="flex center">
+          ></Image>
+        </View>
+        <View onClick={() => setVisible(true)} class="flex center">
           立即登录
-          <image
+          <Image
             src="http://192.168.1.127:5500/less.png"
             class="ml-1 w-32 h-32 rotate-180"
-          ></image>
-        </view>
-      </view>
+          ></Image>
+        </View>
+      </View>
     );
   };
 
   return (
-    <view class="p-4" id={ROOT_ID}>
+    <View class="p-4" id={ROOT_ID}>
       <Show when={user().token} fallback={NoTokenView()}>
-        <view class="flex items-center">
-          <view class="w-100 h-100 bg-gray rounded-[100rpx] mr-2 flex center">
-            <image
+        <View class="flex items-center">
+          <View class="w-100 h-100 bg-gray rounded-[100rpx] mr-2 flex center">
+            <Image
               src="http://192.168.1.127:5500/profile.png"
               class="w-50 h-50"
-            ></image>
-          </view>
-          <text>{encryptPhone(phone())}</text>
-        </view>
+            ></Image>
+          </View>
+          <Text>{encryptPhone(phone())}</Text>
+        </View>
         <Card class="shadow border-solid mt-10">
-          <view></view>
+          <View></View>
         </Card>
-        <button
+        <Button
           class="absolute bottom-xs left-1_2 w-7/8 translate-x--1_2"
           size="default"
           onClick={() => setVisible(true)}
         >
           切换账号
-        </button>
+        </Button>
       </Show>
       <Dialog
         title="手机号登录"
         visible={visible()}
         onClose={() => setVisible(false)}
       >
-        <view class="h-xl flex flex-col">
-          <view class="w-full h-90 flex flex-nowrap items-center border border-gray-4 border-solid rounded-lg my-5 px-2 box-border">
-            <text class="mr-2 pr-2 border-r-style-solid border border-gray-2">
+        <View class="h-xl flex flex-col">
+          <View class="w-full h-90 flex flex-nowrap items-center border border-gray-4 border-solid rounded-lg my-5 px-2 box-border">
+            <Text class="mr-2 pr-2 border-r-style-solid border border-gray-2">
               +86
-            </text>
-            <input
+            </Text>
+            <Input
               placeholder="请输入手机号"
               type="number"
               use:model={[phone, setPhone]}
             />
-          </view>
-          <button
+          </View>
+          <Button
             class={clsx(
               "mt-auto w-full mb-5",
-              regPhone.test(phone()) ? "bg-slate-900 text-white" : ""
+              regPhone.test(phone()) ? "bg-slate-900 Text-white" : ""
             )}
             onClick={login}
           >
             登录
-          </button>
-        </view>
+          </Button>
+        </View>
       </Dialog>
-    </view>
+    </View>
   );
 }

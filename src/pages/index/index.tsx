@@ -1,4 +1,5 @@
 import { useDidShow } from "@tarojs/taro";
+import { View, Image } from '@tarojs/components'
 import { createSignal, createMemo, For, onMount } from "solid-js";
 import useStore from "@/useHooks/useStore";
 
@@ -19,41 +20,41 @@ export default function Index() {
   ]);
 
   return (
-    <view class="h-screen flex flex-col text-xs" id={ROOT_ID}>
+    <View class="h-screen flex flex-col Text-xs" id={ROOT_ID}>
       <HeaderBar
         tabsData={tabsData()}
         handleMore={() => setShowMore(true)}
       ></HeaderBar>
       <Drawer openDrawer={showMore()} maskClick={() => setShowMore(false)}>
-        <view class="w-full bg-white">
-          <view class="flex flex-wrap">
+        <View class="w-full bg-white">
+          <View class="flex flex-wrap">
             <For each={tabsData()}>
               {(item) => (
-                <view class="whitespace-nowrap m-1" onClick={() => {}}>
+                <View class="whitespace-nowrap m-1" onClick={() => {}}>
                   {item.name}
-                </view>
+                </View>
               )}
             </For>
-          </view>
-          <view class="text-center">
-            <image
+          </View>
+          <View class="Text-center">
+            <Image
               src="http://192.168.1.127:5500/down.png"
               class="w-40 h-40 pl-4 rotate-180"
               onClick={() => setShowMore(false)}
-            ></image>
-          </view>
-        </view>
+            ></Image>
+          </View>
+        </View>
       </Drawer>
-      <view class="p-2 flex-1 overflow-y-auto">
+      <View class="p-2 flex-1 overflow-y-auto">
         <Card class="mb-2 shadow-[--box-shadow]">
-          <view class="font-bold">商品：xxxx</view>
-          <view class="font-bold">规格：xxxx</view>
-          <view class="font-bold">类别：xxxx</view>
-          <view class="font-bold">生产日期：xxxx</view>
-          <view class="font-bold">保质期：xxxx 个月</view>
-          <view class="font-bold">过期日期：xxxx</view>
+          <View class="font-bold">商品：xxxx</View>
+          <View class="font-bold">规格：xxxx</View>
+          <View class="font-bold">类别：xxxx</View>
+          <View class="font-bold">生产日期：xxxx</View>
+          <View class="font-bold">保质期：xxxx 个月</View>
+          <View class="font-bold">过期日期：xxxx</View>
         </Card>
-      </view>
-    </view>
+      </View>
+    </View>
   );
 }

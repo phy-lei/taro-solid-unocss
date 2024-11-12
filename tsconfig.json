@@ -15,16 +15,15 @@
     "sourceMap": true,
     "rootDir": ".",
     "jsx": "preserve",
-    "jsxImportSource": "solid-js",
     "allowJs": true,
+    "jsxImportSource": "solid-js",
     "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "noEmit": true,
-    "isolatedModules": true,
-    "typeRoots": ["node_modules/@types"],
-    "baseUrl": ".",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
     "paths": {
-      "@/*": ["src/*"]
+      // TS5090 leading './'
+      "@/*": ["./src/*"]
     }
   },
   "include": ["./src", "./types", "./config"],
